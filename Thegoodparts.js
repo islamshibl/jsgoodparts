@@ -66,7 +66,13 @@ then the result is the undefined value. This is called delegation.
 //Enumeration
 for (var name in fastFlight) {
     if (typeof fastFlight[name] !== 'function') {
-        console.log(name + ' : ' + fastFlight[name]);
+       // console.log(name + ' : ' + fastFlight[name]);
     }
 }
 
+//Delete
+//Used to remove property from an object
+//can't remove any property from the prototype chain
+console.log(flight.nickname)
+delete flight.nickname
+console.log(flight.nickname)
