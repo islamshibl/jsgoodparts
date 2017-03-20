@@ -47,5 +47,17 @@ if(typeof Object.create !=='function'){
 }
 var fastFlight=Object.create(flight);
 fastFlight.airline ="dsds";
-console.log(flight.airline)
-console.log(fastFlight.airlinex);
+//console.log(flight.airline)
+//console.log(fastFlight.airlinex);
+
+
+/*The prototype link is used only in retrieval. If we try to retrieve a property value from
+an object, and if the object lacks the property name, then JavaScript attempts to
+retrieve the property value from the prototype object. And if that object is lacking the
+property, then it goes to its prototype, and so on until the process finally bottoms out
+with Object.prototype. If the desired property exists nowhere in the prototype chain,
+then the result is the undefined value. This is called delegation.
+*/
+
+//Reflection
+ console.log(typeof flight.toString);
