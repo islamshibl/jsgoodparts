@@ -1,5 +1,6 @@
+var MYAPP ={};
 //Objects and accesing them
-var flight = {
+MYAPP.flight = {
     airline: "Oceanic",
     number: 815,
     departure: {
@@ -21,17 +22,17 @@ var flight = {
 //console.log(flight.equipment.equibment);
 
 //objects are passed by reference they never copied;
-var x = flight;
+MYAPP.x = MYAPP.flight;
 //console.log(x.airline);
-x.airline = "Egy"
+MYAPP.x.airline = "Eg..."
 
 //console.log(x.airline);
 //console.log(flight.airline);
-x.nickname = 'Curly';
-var nick = flight.nickname;
+MYAPP.x.nickname = 'Curly';
+MYAPP.nick = MYAPP.flight.nickname;
 //console.log(nick);
-var a = {}, b = {}, c = {}; //different empty objects
-a = b = c = {}
+MYAPP.a = {}, MYAPP.b = {}, MYAPP.c = {}; //different empty objects
+MYAPP.a = MYAPP.b = MYAPP.c = {}
 //same empty object
 //console.log(a);
 
@@ -40,13 +41,13 @@ a = b = c = {}
 //Prototype
 if (typeof Object.create !== 'function') {
     Object.create = function (o) {
-        var F = function () { };
+        F = function () { };
         F.prototype = o;
         return new F();
     };
 }
-var fastFlight = Object.create(flight);
-fastFlight.airline = "dsds";
+MYAPP.fastFlight = Object.create(MYAPP.flight);
+MYAPP.fastFlight.airline = "dsds";
 //console.log(flight.airline)
 //console.log(fastFlight.airlinex);
 
@@ -64,8 +65,8 @@ then the result is the undefined value. This is called delegation.
 
 
 //Enumeration
-for (var name in fastFlight) {
-    if (typeof fastFlight[name] !== 'function') {
+for (var name in MYAPP.fastFlight) {
+    if (typeof MYAPP.fastFlight[name] !== 'function') {
        // console.log(name + ' : ' + fastFlight[name]);
     }
 }
@@ -73,6 +74,8 @@ for (var name in fastFlight) {
 //Delete
 //Used to remove property from an object
 //can't remove any property from the prototype chain
-console.log(flight.nickname)
-delete flight.nickname
-console.log(flight.nickname)
+console.log(MYAPP.flight.nickname)
+delete MYAPP.flight.nickname
+console.log(MYAPP.flight.nickname)
+
+//Global Abatement
