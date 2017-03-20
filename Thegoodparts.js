@@ -13,3 +13,7 @@ var flight = {
  city: "Los Angeles"
  }
 };
+console.log(flight.arrival.IATA);
+console.log(flight["number"])
+//Attempt to retrieve non existant member
+console.log(flight.nan); //undefined
