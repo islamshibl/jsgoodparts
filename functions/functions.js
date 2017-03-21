@@ -57,3 +57,16 @@ FUNAPP.myObject.double =function(){
 }
 FUNAPP.myObject.double();
 console.log(FUNAPP.myObject.value);
+
+//Constructor invocation Pattern
+var Quo =function(string){
+    this.status =string;
+    console.log(this);
+};
+Quo.prototype.get_status =function(){
+  return this.status;  
+};
+var myQue =new Quo("confused");
+var myQue1 =new Quo("happy");
+
+console.log(myQue.get_status());
