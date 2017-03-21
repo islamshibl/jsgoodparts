@@ -70,3 +70,21 @@ FUNAPP.myQue =new FUNAPP.Quo("confused");
 FUNAPP.myQue1 =new FUNAPP.Quo("happy");
 
 console.log(FUNAPP.myQue.get_status());
+
+//Apply Invocation pattern
+
+//Apply method lets us construct an array of arguments to use 
+//to invoke a function.
+//it also lets us choose the value of this 
+
+FUNAPP.array =[3,4];
+FUNAPP.SUM=FUNAPP.add.apply(null,FUNAPP.array);
+console.log(FUNAPP.SUM);
+
+FUNAPP.statusObject ={
+    status :"A-OK"
+}
+//statusObject does not inherit from Que.prototype
+//but we can invoke the get_status method
+FUNAPP.status= FUNAPP.Quo.prototype.get_status.apply(FUNAPP.statusObject);
+console.log(FUNAPP.status);
