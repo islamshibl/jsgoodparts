@@ -79,7 +79,7 @@ console.log(FUNAPP.myQue.get_status());
 
 FUNAPP.array =[3,4];
 FUNAPP.SUM=FUNAPP.add.apply(null,FUNAPP.array);
-console.log(FUNAPP.SUM);
+//console.log(FUNAPP.SUM);
 
 FUNAPP.statusObject ={
     status :"A-OK"
@@ -87,4 +87,15 @@ FUNAPP.statusObject ={
 //statusObject does not inherit from Que.prototype
 //but we can invoke the get_status method
 FUNAPP.status= FUNAPP.Quo.prototype.get_status.apply(FUNAPP.statusObject);
-console.log(FUNAPP.status);
+//console.log(FUNAPP.status);
+
+//arguments
+FUNAPP.sum_args= function(){
+    var sum=0;
+    for(var l=0;l<arguments.length; l++){
+        sum +=arguments[l];
+    }
+        return sum;    
+}
+
+console.log(FUNAPP.sum_args(1,2,3,4,5,6,7,8,9));
