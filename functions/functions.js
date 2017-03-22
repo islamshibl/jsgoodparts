@@ -114,3 +114,24 @@ console.log(FUNAPP.dFun());
 //Retuen 10;
 console.log(new FUNAPP.dFun)
 // return this ( new object)
+
+//Exceptions
+FUNAPP.addExce =function(a,b){
+    if(typeof a !=='number' ||typeof b !=='number'){
+        throw{
+            name :'TypeError',
+            message :'addExce needs numbers'
+        };
+        return a +b;
+    }
+}
+
+FUNAPP.tryIt =function(){
+    try{
+        FUNAPP.addExce("Seven");
+    }
+    catch(e){
+        console.log(e.name+ ": "+e.message);
+    }
+}
+FUNAPP.tryIt();
