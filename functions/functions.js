@@ -102,17 +102,17 @@ FUNAPP.aFun=function(){
     var x =10;
 }
 FUNAPP.bFun =new FUNAPP.aFun();
-console.log(FUNAPP.bFun);
+//console.log(FUNAPP.bFun);
 //Return this (the new object)
 FUNAPP.cFun=FUNAPP.aFun();
-console.log(FUNAPP.cFun);
+//console.log(FUNAPP.cFun);
 //Return undefined
 FUNAPP.dFun=function(){
     return 10;
 }
-console.log(FUNAPP.dFun());
+//console.log(FUNAPP.dFun());
 //Retuen 10;
-console.log(new FUNAPP.dFun)
+//console.log(new FUNAPP.dFun)
 // return this ( new object)
 
 //Exceptions
@@ -134,4 +134,23 @@ FUNAPP.tryIt =function(){
         console.log(e.name+ ": "+e.message);
     }
 }
-FUNAPP.tryIt();
+//FUNAPP.tryIt();
+
+//Augmenting types
+//Ex . By augmenting Function.prototype we can make 
+//a method abailable to all functions
+Function.prototype.method =function(name,func){
+   if(!this.prototype[name]){
+    this.prototype[name]=func;
+}
+    return this;
+};
+
+Number.method('pp',function(){
+    return this +2;
+});
+console.log((10).pp());
+String.method('trim',function(){
+    return this.replace(/^\s+|\s+$/g, '');
+});
+console.log('"'+"    meat   ".trim()+'"');
