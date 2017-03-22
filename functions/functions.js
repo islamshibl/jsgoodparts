@@ -56,12 +56,12 @@ FUNAPP.myObject.double =function(){
     helper();
 }
 FUNAPP.myObject.double();
-console.log(FUNAPP.myObject.value);
+//console.log(FUNAPP.myObject.value);
 
 //Constructor invocation Pattern
 FUNAPP.Quo =function(string){
     this.status =string;
-    console.log(this);
+  //  console.log(this);
 };
 FUNAPP.Quo.prototype.get_status =function(){
   return this.status;  
@@ -69,7 +69,7 @@ FUNAPP.Quo.prototype.get_status =function(){
 FUNAPP.myQue =new FUNAPP.Quo("confused");
 FUNAPP.myQue1 =new FUNAPP.Quo("happy");
 
-console.log(FUNAPP.myQue.get_status());
+//console.log(FUNAPP.myQue.get_status());
 
 //Apply Invocation pattern
 
@@ -97,5 +97,20 @@ FUNAPP.sum_args= function(){
     }
         return sum;    
 }
-
-console.log(FUNAPP.sum_args(1,2,3,4,5,6,7,8,9));
+//return
+FUNAPP.aFun=function(){
+    var x =10;
+}
+FUNAPP.bFun =new FUNAPP.aFun();
+console.log(FUNAPP.bFun);
+//Return this (the new object)
+FUNAPP.cFun=FUNAPP.aFun();
+console.log(FUNAPP.cFun);
+//Return undefined
+FUNAPP.dFun=function(){
+    return 10;
+}
+console.log(FUNAPP.dFun());
+//Retuen 10;
+console.log(new FUNAPP.dFun)
+// return this ( new object)
