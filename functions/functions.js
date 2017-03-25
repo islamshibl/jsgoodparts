@@ -12,12 +12,12 @@ FUNAPP.add =function(a,b){
     }
     bla();
     return a+b;
-    
+
 }
 
 //The Method invocation Pattern
 /*When a function is stored as a property of an object,
-we call it a method. When a method is invoked, 
+we call it a method. When a method is invoked,
 this is bound to that object. */
 FUNAPP.myObject={
     value :0,
@@ -36,15 +36,15 @@ FUNAPP.myObject.increment(2);
 // then it is invoked as a function
 FUNAPP.sum =FUNAPP.add(3,4)
 //console.log(FUNAPP.sum);
-//When a function is invoked with this pattern, 
+//When a function is invoked with this pattern,
 //this is bound to the global object
-//this was a mistake in the design of the language 
+//this was a mistake in the design of the language
 //A consqequence of this error is that a method cannot employ an
 //inner function to help it do it;s work because the inner function
-//does not share the method's access to help the object as its this 
+//does not share the method's access to help the object as its this
 //is bound to the wrong value
 
-//Workaround to solve this problem 
+//Workaround to solve this problem
 FUNAPP.myObject.double =function(){
     var that =this;
 //    console.log(this);
@@ -64,7 +64,7 @@ FUNAPP.Quo =function(string){
   //  console.log(this);
 };
 FUNAPP.Quo.prototype.get_status =function(){
-  return this.status;  
+  return this.status;
 };
 FUNAPP.myQue =new FUNAPP.Quo("confused");
 FUNAPP.myQue1 =new FUNAPP.Quo("happy");
@@ -73,9 +73,9 @@ FUNAPP.myQue1 =new FUNAPP.Quo("happy");
 
 //Apply Invocation pattern
 
-//Apply method lets us construct an array of arguments to use 
+//Apply method lets us construct an array of arguments to use
 //to invoke a function.
-//it also lets us choose the value of this 
+//it also lets us choose the value of this
 
 FUNAPP.array =[3,4];
 FUNAPP.SUM=FUNAPP.add.apply(null,FUNAPP.array);
@@ -95,7 +95,7 @@ FUNAPP.sum_args= function(){
     for(var l=0;l<arguments.length; l++){
         sum +=arguments[l];
     }
-        return sum;    
+        return sum;
 }
 //return
 FUNAPP.aFun=function(){
@@ -137,8 +137,8 @@ FUNAPP.tryIt =function(){
 //FUNAPP.tryIt();
 
 //Augmenting types
-//Ex . By augmenting Function.prototype we can make 
-//a method abailable to all functions
+//Ex . By augmenting Function.prototype we can make
+//a method available to all functions
 Function.prototype.method =function(name,func){
    if(!this.prototype[name]){
     this.prototype[name]=func;
