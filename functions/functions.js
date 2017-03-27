@@ -154,3 +154,16 @@ String.method('trim',function(){
     return this.replace(/^\s+|\s+$/g, '');
 });
 console.log('"'+"    meat   ".trim()+'"');
+//Scope
+var foo =function(){
+    var a=3,b=5;
+    console.log("a:"+a);
+    var bar =function(){
+        var b=7, c=11;
+        a +=b +c;
+    console.log("a:"+a +",b:"+b+",c:"+c);
+    };
+    bar();
+    console.log("a:"+a +",b:"+b);
+};
+foo();
